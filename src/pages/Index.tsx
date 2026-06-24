@@ -22,6 +22,10 @@ import {
 
 const HERO_IMG =
   'https://cdn.poehali.dev/projects/34b3c021-d3f3-458e-b06d-491a265d0da9/files/d5760191-3ed8-4b2e-8019-468ea59b142a.jpg';
+const ABOUT_IMG =
+  'https://cdn.poehali.dev/projects/34b3c021-d3f3-458e-b06d-491a265d0da9/files/7c1278d0-e2fa-4815-8850-9426c44c313d.jpg';
+const TESTS_IMG =
+  'https://cdn.poehali.dev/projects/34b3c021-d3f3-458e-b06d-491a265d0da9/files/0fa6cadb-2ecc-441e-8429-e15abb2aee4b.jpg';
 
 const NAV = [
   { id: 'about', label: 'О компании' },
@@ -284,6 +288,9 @@ const Index = () => {
               возраста услышать себя и выбрать дело по душе. Никаких шаблонов — только вы, ваши
               таланты и честный разговор.
             </p>
+            <div className="relative mt-8 rounded-[2rem] overflow-hidden shadow-xl border-4 border-white">
+              <img src={ABOUT_IMG} alt="Команда «Путь»" className="w-full object-cover aspect-[16/10]" />
+            </div>
           </div>
           <div className="grid grid-cols-2 gap-5">
             {[
@@ -342,16 +349,21 @@ const Index = () => {
       {/* TESTS */}
       <section id="tests" className="py-24 sm:py-32">
         <div className="container">
-          <div className="max-w-2xl mb-14">
-            <p className="font-display font-semibold text-secondary uppercase tracking-widest text-sm mb-4">
-              Тесты
-            </p>
-            <h2 className="font-display font-extrabold text-4xl sm:text-5xl leading-tight">
-              Начните с бесплатного теста
-            </h2>
-            <p className="mt-5 text-lg text-muted-foreground">
-              Несколько минут — и вы получите карту своих сильных сторон.
-            </p>
+          <div className="grid lg:grid-cols-2 gap-12 items-center mb-14">
+            <div className="max-w-2xl">
+              <p className="font-display font-semibold text-secondary uppercase tracking-widest text-sm mb-4">
+                Тесты
+              </p>
+              <h2 className="font-display font-extrabold text-4xl sm:text-5xl leading-tight">
+                Начните с бесплатного теста
+              </h2>
+              <p className="mt-5 text-lg text-muted-foreground">
+                Несколько минут — и вы получите карту своих сильных сторон.
+              </p>
+            </div>
+            <div className="relative rounded-[2rem] overflow-hidden shadow-xl border-4 border-white animate-float">
+              <img src={TESTS_IMG} alt="Профориентационные тесты" className="w-full object-cover aspect-[16/10]" />
+            </div>
           </div>
           <div className="grid md:grid-cols-3 gap-6">
             {TESTS.map((t, i) => (
