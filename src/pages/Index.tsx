@@ -27,6 +27,13 @@ const ABOUT_IMG =
 const TESTS_IMG =
   'https://cdn.poehali.dev/projects/34b3c021-d3f3-458e-b06d-491a265d0da9/files/0fa6cadb-2ecc-441e-8429-e15abb2aee4b.jpg';
 
+const SERVICE_IMGS = [
+  'https://cdn.poehali.dev/projects/34b3c021-d3f3-458e-b06d-491a265d0da9/files/a27159c5-ae7e-4af1-a361-d739a9b0054b.jpg',
+  'https://cdn.poehali.dev/projects/34b3c021-d3f3-458e-b06d-491a265d0da9/files/5adddecb-e653-424d-a934-74bdfab160f7.jpg',
+  'https://cdn.poehali.dev/projects/34b3c021-d3f3-458e-b06d-491a265d0da9/files/15a1c39c-d899-4719-995b-877cce665405.jpg',
+  'https://cdn.poehali.dev/projects/34b3c021-d3f3-458e-b06d-491a265d0da9/files/ef2bf88c-227b-4a5d-af2e-9394ce35a178.jpg',
+];
+
 const NAV = [
   { id: 'about', label: 'О компании' },
   { id: 'services', label: 'Услуги' },
@@ -326,20 +333,26 @@ const Index = () => {
             {SERVICES.map((s, i) => (
               <div
                 key={i}
-                className="group relative rounded-3xl bg-card border border-border p-8 overflow-hidden hover:shadow-xl transition-shadow"
+                className="group rounded-3xl bg-card border border-border overflow-hidden hover:shadow-xl transition-shadow"
               >
-                <div
-                  className="absolute -right-8 -top-8 w-32 h-32 rounded-full opacity-10 group-hover:scale-150 transition-transform duration-500"
-                  style={{ background: s.color }}
-                />
-                <span
-                  className="relative grid place-items-center w-14 h-14 rounded-2xl mb-6 text-white"
-                  style={{ background: s.color }}
-                >
-                  <Icon name={s.icon} size={26} />
-                </span>
-                <h3 className="font-display font-bold text-2xl mb-3">{s.title}</h3>
-                <p className="text-muted-foreground">{s.text}</p>
+                <div className="relative overflow-hidden h-52">
+                  <img
+                    src={SERVICE_IMGS[i]}
+                    alt={s.title}
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                  />
+                  <div className="absolute inset-0" style={{ background: `${s.color}33` }} />
+                  <span
+                    className="absolute bottom-4 left-4 grid place-items-center w-12 h-12 rounded-2xl text-white shadow-lg"
+                    style={{ background: s.color }}
+                  >
+                    <Icon name={s.icon} size={22} />
+                  </span>
+                </div>
+                <div className="p-8">
+                  <h3 className="font-display font-bold text-2xl mb-3">{s.title}</h3>
+                  <p className="text-muted-foreground">{s.text}</p>
+                </div>
               </div>
             ))}
           </div>
