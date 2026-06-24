@@ -87,16 +87,19 @@ const REVIEWS = [
     name: 'Анна К.',
     role: 'мама школьника',
     text: 'Сын год не мог определиться. После двух встреч он сам загорелся идеей поступать на инженера. Спасибо!',
+    img: 'https://cdn.poehali.dev/projects/34b3c021-d3f3-458e-b06d-491a265d0da9/files/8b5525b6-c015-47e5-bd50-3a2a4128bcc9.jpg',
   },
   {
     name: 'Дмитрий В.',
     role: 'сменил профессию в 34',
     text: 'Думал, в моём возрасте поздно. Профориентолог помог увидеть, что мой опыт — это преимущество.',
+    img: 'https://cdn.poehali.dev/projects/34b3c021-d3f3-458e-b06d-491a265d0da9/files/b616a8a8-75f0-4bb8-97b3-479f12ed1216.jpg',
   },
   {
     name: 'Марина Л.',
     role: 'руководитель отдела',
     text: 'Прошли командную диагностику. Перераспределили роли — продуктивность выросла заметно.',
+    img: 'https://cdn.poehali.dev/projects/34b3c021-d3f3-458e-b06d-491a265d0da9/files/865815c0-7149-4d9a-b65d-7958bd264c6b.jpg',
   },
 ];
 
@@ -452,20 +455,32 @@ const Index = () => {
           </div>
           <div className="grid md:grid-cols-3 gap-6">
             {REVIEWS.map((r, i) => (
-              <div key={i} className="rounded-3xl bg-card border border-border p-8 shadow-sm">
-                <div className="flex gap-1 text-secondary mb-5">
-                  {Array.from({ length: 5 }).map((_, j) => (
-                    <Icon key={j} name="Star" size={18} className="fill-current" />
-                  ))}
+              <div key={i} className="rounded-3xl bg-card border border-border overflow-hidden shadow-sm flex flex-col">
+                <div className="relative h-48 overflow-hidden">
+                  <img
+                    src={r.img}
+                    alt={r.name}
+                    className="w-full h-full object-cover object-top"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-card/80 to-transparent" />
                 </div>
-                <p className="text-lg leading-relaxed mb-7">«{r.text}»</p>
-                <div className="flex items-center gap-3">
-                  <span className="grid place-items-center w-11 h-11 rounded-full bg-primary text-primary-foreground font-display font-bold">
-                    {r.name[0]}
-                  </span>
-                  <div>
-                    <p className="font-semibold leading-none">{r.name}</p>
-                    <p className="text-sm text-muted-foreground mt-1">{r.role}</p>
+                <div className="p-8 flex flex-col flex-1">
+                  <div className="flex gap-1 text-secondary mb-5">
+                    {Array.from({ length: 5 }).map((_, j) => (
+                      <Icon key={j} name="Star" size={18} className="fill-current" />
+                    ))}
+                  </div>
+                  <p className="text-lg leading-relaxed mb-7 flex-1">«{r.text}»</p>
+                  <div className="flex items-center gap-3">
+                    <img
+                      src={r.img}
+                      alt={r.name}
+                      className="w-11 h-11 rounded-full object-cover object-top border-2 border-border"
+                    />
+                    <div>
+                      <p className="font-semibold leading-none">{r.name}</p>
+                      <p className="text-sm text-muted-foreground mt-1">{r.role}</p>
+                    </div>
                   </div>
                 </div>
               </div>
